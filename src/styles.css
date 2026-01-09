@@ -106,6 +106,14 @@ transition: transform 0.3s ease;
 transform: scale(1.2);
 }
 
+.x-logo-class{
+transition: transform 0.3s ease;
+}
+
+.x-logo-class:hover{
+transform: scale(1.2);
+}
+
 #loader {
   position: fixed;
   top: 0;
