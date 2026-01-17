@@ -7,7 +7,7 @@ This repository contains the source code and assets for my portfolio website, sh
 [m-cristian.xyz](https://m-cristian.xyz)
 
 ## 🛠️ Built With
-- HTML, CSS, JavaScript (Vanilla JS)
+- HTML, CSS, JavaScript (Vanilla-JS)
 - Brand icons for GitHub, Instagram, LinkedIn, and other brands 
 
 ## ⚠️ Disclaimer
