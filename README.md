@@ -8,7 +8,7 @@ This repository contains the source code and assets for my portfolio website, sh
 
 ## 🛠️ Built With
 - HTML, CSS, JavaScript (Vanilla-JS)
-- Brand icons for GitHub, Instagram, LinkedIn, and other brands 
+- Brand icons for GitHub, Instagram, LinkedIn, X, and other brands 
 
 ## ⚠️ Disclaimer
 All original content of this portfolio is the intellectual property of Cristian M.  
