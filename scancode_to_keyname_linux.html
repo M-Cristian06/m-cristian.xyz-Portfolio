@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Scancode to Keyname Reference Mapping Table (evdev) by Miron Cristian</title>
+    <meta name="title" content="Linux Scancode to Keyname Reference Mapping Table (evdev)">
+    <meta name="description" content="Complete reference table mapping Linux raw input scancodes to technical KEY_* constants and human-readable key names based on linux/input.h (evdev).">
+    <meta name="keywords" content="linux scancode, linux keycode map, evdev keynames, linux input.h, KEY_A scancode, raw keyboard input linux, linux scan codes table">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Miron Cristian">
+    <link rel="canonical" href="https://m-cristian.xyz/scancode_to_keyname_linux.html">
+    <style>
+        body {
+margin: 0;
+background-color: rgb(0, 8, 13);
+align-items: center;
+align-self: center;
+align-content: center;
+}
+
+h1
+{color:rgb(3, 146, 255);
+font-family: 'Ubuntu', sans-serif;
+font-size: clamp(3rem, 6vw, 2rem);
+margin: 0.5rem;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.table-container table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: rgba(2, 20, 32, 0.7);
+  border: 1px solid rgba(3, 146, 255, 0.2);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(3, 146, 255, 0.1);
+  font-family: "Google Sans Code", monospace;
+  color: #e9eaec;
+}
+
+.table-container th {
+  background-color: rgba(3, 146, 255, 0.12);
+  color: rgba(19, 185, 124, 0.95);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 16px;
+  text-align: left;
+  border-bottom: 2px solid rgba(3, 146, 255, 0.3);
+}
+
+
+.table-container td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.table-container tr:last-child td {
+  border-bottom: none;
+}
+
+.table-container tbody tr {
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.table-container tbody tr:hover {
+  background-color: rgba(3, 146, 255, 0.08);
+}
+
+
+.table-container td:nth-child(1) {
+  color: rgb(3, 146, 255);
+  font-weight: bold;
+}
+
+
+.table-container td:nth-child(2) {
+  color: rgba(19, 185, 124, 0.91);
+}
+
+
+.table-container td kbd,
+.table-container td:nth-child(3) {
+  font-family: "Google Sans Code", monospace;
+}
+
+.key-badge {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  padding: 2px 8px;
+  font-size: 0.85rem;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.title-container{
+
+text-align: center;
+align-items: center;
+font-family: "Google Sans Code", monospace;
+
+}
+
+
+.responsive-line {
+height: 2px;
+background-color: #333;
+width: 100%;
+margin: 20px 0;
+transform: scaleY(0.5);
+transform-origin: top;
+}
+
+.socials-links{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 15px;
+}
+
+.socials-title{
+margin-top: 0;
+}
+
+.linkedin-logo-class {
+transition: transform 0.3s ease;
+}
+
+.linkedin-logo-class:hover{
+transform: scale(1.2);
+}
+
+.github-logo-class{
+transition: transform 0.3s ease;
+}
+
+.github-logo-class:hover{
+transform: scale(1.2);
+}
+
+.instagram-logo-class{
+transition: transform 0.3s ease;
+}
+
+.instagram-logo-class:hover{
+transform: scale(1.2);
+}
+
+.mail-logo-class{
+transition: transform 0.3s ease;
+}
+
+.mail-logo-class:hover{
+transform: scale(1.2);
+}
+
+.x-logo-class{
+transition: transform 0.3s ease;
+}
+
+.x-logo-class:hover{
+transform: scale(1.2);
+}
+
+
+.socials-title{
+
+text-align: center;
+color:#e9eaec;
+
+}
+footer{
+  background-color: #022d50;
+  color: #085cbc;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box; 
+
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column; 
+    text-align: center;
+  }
+
+  .footer-content nav a {
+    margin: 10px 5px; 
+  }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="title-container">
+       <h1 class="title_">Scancode to keyname on Linux by Miron Cristian</h1>
+       <p style="color: rgba(19, 185, 124, 0.91);">I'm working on a project with Linux raw keyboard input, i wanted to translate scancode to key name but it was hard to find a clear list mapping about scancode -> keyname that so i made one simple list
+        You can find my reference: <a href="https://elixir.bootlin.com/linux/v2.6.38/source/include/linux/input.h">Here</a> 
+  </p>
+    </div>
+                         <div class="responsive-line"></div>
+               <br><h2 class="socials-title"><strong>My Socials</strong></h2>
+               <div class="socials-links">
+                    <a class="linkedin-logo-class" href="https://www.linkedin.com/in/miron-cristian-3a34b4389/"><img src="static/icons/icons8-linkedin.svg" width="45" alt="linkedin-logo"></a>
+                         <a class="github-logo-class" href="https://github.com/M-Cristian06"><img src="static/icons/github-mark-white.svg" width="35" alt="github-logo"></a>
+                              <a class="instagram-logo-class" href="https://www.instagram.com/m__cristian"><img src="static/icons/Instagram_Glyph_Gradient.svg" width="35" alt="instagram-logo"></a>
+                                   <a style="background-color: aliceblue;" class="x-logo-class" href="https://x.com/M___Cristian"><img src="static/icons/x-icon.svg" width="35" alt="x-logo"></a>
+                                        <a class="mail-logo-class" href="mailto:contact&#64;m-cristian&#46;xyz"><img src="static/icons/google_mail_gmail_logo_icon_159346.svg" width="60" alt="email-logo"></a>
+          </div>
+                  <div class="responsive-line"></div>
+
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Scancode</th>
+                <th>Technical Name</th>
+                <th>Key Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>30</td><td>KEY_A</td><td>a</td></tr>
+            <tr><td>48</td><td>KEY_B</td><td>b</td></tr>
+            <tr><td>46</td><td>KEY_C</td><td>c</td></tr>
+            <tr><td>32</td><td>KEY_D</td><td>d</td></tr>
+            <tr><td>18</td><td>KEY_E</td><td>e</td></tr>
+            <tr><td>33</td><td>KEY_F</td><td>f</td></tr>
+            <tr><td>34</td><td>KEY_G</td><td>g</td></tr>
+            <tr><td>35</td><td>KEY_H</td><td>h</td></tr>
+            <tr><td>23</td><td>KEY_I</td><td>i</td></tr>
+            <tr><td>36</td><td>KEY_J</td><td>j</td></tr>
+            <tr><td>37</td><td>KEY_K</td><td>k</td></tr>
+            <tr><td>38</td><td>KEY_L</td><td>l</td></tr>
+            <tr><td>50</td><td>KEY_M</td><td>m</td></tr>
+            <tr><td>49</td><td>KEY_N</td><td>n</td></tr>
+            <tr><td>24</td><td>KEY_O</td><td>o</td></tr>
+            <tr><td>25</td><td>KEY_P</td><td>p</td></tr>
+            <tr><td>16</td><td>KEY_Q</td><td>q</td></tr>
+            <tr><td>19</td><td>KEY_R</td><td>r</td></tr>
+            <tr><td>31</td><td>KEY_S</td><td>s</td></tr>
+            <tr><td>20</td><td>KEY_T</td><td>t</td></tr>
+            <tr><td>22</td><td>KEY_U</td><td>u</td></tr>
+            <tr><td>47</td><td>KEY_V</td><td>v</td></tr>
+            <tr><td>17</td><td>KEY_W</td><td>w</td></tr>
+            <tr><td>45</td><td>KEY_X</td><td>x</td></tr>
+            <tr><td>21</td><td>KEY_Y</td><td>y</td></tr>
+            <tr><td>44</td><td>KEY_Z</td><td>z</td></tr>
+
+
+            <tr><td>59</td><td>KEY_F1</td><td>f1</td></tr>
+            <tr><td>60</td><td>KEY_F2</td><td>f2</td></tr>
+            <tr><td>61</td><td>KEY_F3</td><td>f3</td></tr>
+            <tr><td>62</td><td>KEY_F4</td><td>f4</td></tr>
+            <tr><td>63</td><td>KEY_F5</td><td>f5</td></tr>
+            <tr><td>64</td><td>KEY_F6</td><td>f6</td></tr>
+            <tr><td>65</td><td>KEY_F7</td><td>f7</td></tr>
+            <tr><td>66</td><td>KEY_F8</td><td>f8</td></tr>
+            <tr><td>67</td><td>KEY_F9</td><td>f9</td></tr>
+            <tr><td>68</td><td>KEY_F10</td><td>f10</td></tr>
+            <tr><td>87</td><td>KEY_F11</td><td>f11</td></tr>
+            <tr><td>88</td><td>KEY_F12</td><td>f12</td></tr>
+
+
+            <tr><td>11</td><td>KEY_0</td><td>0</td></tr>
+            <tr><td>2</td><td>KEY_1</td><td>1</td></tr>
+            <tr><td>3</td><td>KEY_2</td><td>2</td></tr>
+            <tr><td>4</td><td>KEY_3</td><td>3</td></tr>
+            <tr><td>5</td><td>KEY_4</td><td>4</td></tr>
+            <tr><td>6</td><td>KEY_5</td><td>5</td></tr>
+            <tr><td>7</td><td>KEY_6</td><td>6</td></tr>
+            <tr><td>8</td><td>KEY_7</td><td>7</td></tr>
+            <tr><td>9</td><td>KEY_8</td><td>8</td></tr>
+            <tr><td>10</td><td>KEY_9</td><td>9</td></tr>
+
+
+            <tr><td>28</td><td>KEY_ENTER</td><td>ENTER</td></tr>
+            <tr><td>1</td><td>KEY_ESC</td><td>ESC</td></tr>
+            <tr><td>57</td><td>KEY_SPACE</td><td>SPACE</td></tr>
+            <tr><td>15</td><td>KEY_TAB</td><td>TAB</td></tr>
+            <tr><td>14</td><td>KEY_BACKSPACE</td><td>BACKSPACE</td></tr>
+            <tr><td>58</td><td>KEY_CAPSLOCK</td><td>CAPS_LOCK</td></tr>
+            <tr><td>42</td><td>KEY_LEFTSHIFT</td><td>L_SHIFT</td></tr>
+            <tr><td>29</td><td>KEY_LEFTCTRL</td><td>L_CTRL</td></tr>
+            <tr><td>56</td><td>KEY_LEFTALT</td><td>L_ALT</td></tr>
+            <tr><td>125</td><td>KEY_LEFTMETA</td><td>SUPER_KEY</td></tr>
+            <tr><td>54</td><td>KEY_RIGHTSHIFT</td><td>R_SHIFT</td></tr>
+            <tr><td>97</td><td>KEY_RIGHTCTRL</td><td>R_CTRL</td></tr>
+            <tr><td>100</td><td>KEY_RIGHTALT</td><td>R_ALT</td></tr>
+            <tr><td>143</td><td>KEY_FN</td><td>FN</td></tr>
+
+  
+            <tr><td>102</td><td>KEY_HOME</td><td>HOME</td></tr>
+            <tr><td>110</td><td>KEY_INSERT</td><td>INSERT</td></tr>
+            <tr><td>111</td><td>KEY_DELETE</td><td>DELETE</td></tr>
+            <tr><td>107</td><td>KEY_END</td><td>END</td></tr>
+            <tr><td>104</td><td>KEY_PAGEUP</td><td>PAGEUP</td></tr>
+            <tr><td>109</td><td>KEY_PAGEDOWN</td><td>PAGEDOWN</td></tr>
+
+
+            <tr><td>103</td><td>KEY_UP</td><td>UP_ARROW</td></tr>
+            <tr><td>108</td><td>KEY_DOWN</td><td>DOWN_ARROW</td></tr>
+            <tr><td>105</td><td>KEY_LEFT</td><td>LEFT_ARROW</td></tr>
+            <tr><td>106</td><td>KEY_RIGHT</td><td>RIGHT_ARROW</td></tr>
+
+
+            <tr><td>82</td><td>KEY_KP0</td><td>KEYPAD_0</td></tr>
+            <tr><td>79</td><td>KEY_KP1</td><td>KEYPAD_1</td></tr>
+            <tr><td>80</td><td>KEY_KP2</td><td>KEYPAD_2</td></tr>
+            <tr><td>81</td><td>KEY_KP3</td><td>KEYPAD_3</td></tr>
+            <tr><td>75</td><td>KEY_KP4</td><td>KEYPAD_4</td></tr>
+            <tr><td>76</td><td>KEY_KP5</td><td>KEYPAD_5</td></tr>
+            <tr><td>77</td><td>KEY_KP6</td><td>KEYPAD_6</td></tr>
+            <tr><td>71</td><td>KEY_KP7</td><td>KEYPAD_7</td></tr>
+            <tr><td>72</td><td>KEY_KP8</td><td>KEYPAD_8</td></tr>
+            <tr><td>73</td><td>KEY_KP9</td><td>KEYPAD_9</td></tr>
+            <tr><td>96</td><td>KEY_KPENTER</td><td>KEYPAD_ENTER</td></tr>
+            <tr><td>83</td><td>KEY_KPDOT</td><td>KEYPAD_DOT</td></tr>
+            <tr><td>78</td><td>KEY_KPPLUS</td><td>KEYPAD_PLUS</td></tr>
+            <tr><td>74</td><td>KEY_KPMINUS</td><td>KEYPAD_MINUS</td></tr>
+            <tr><td>98</td><td>KEY_KPSLASH</td><td>KEYPAD_SLASH</td></tr>
+            <tr><td>55</td><td>KEY_KPASTERISK</td><td>KEYPAD_ASTERISK</td></tr>
+            <tr><td>69</td><td>KEY_NUMLOCK</td><td>KEYPAD_NUMLOCK</td></tr>
+
+
+            <tr><td>41</td><td>KEY_GRAVE</td><td>`</td></tr>
+            <tr><td>12</td><td>KEY_MINUS</td><td>MINUS</td></tr>
+            <tr><td>13</td><td>KEY_EQUAL</td><td>EQUAL</td></tr>
+            <tr><td>51</td><td>KEY_COMMA</td><td>COMMA</td></tr>
+            <tr><td>52</td><td>KEY_DOT</td><td>DOT</td></tr>
+            <tr><td>53</td><td>KEY_SLASH</td><td>SLASH</td></tr>
+            <tr><td>39</td><td>KEY_SEMICOLON</td><td>SEMICOLON</td></tr>
+            <tr><td>26</td><td>KEY_LEFTBRACE</td><td>LEFTBRACE</td></tr>
+            <tr><td>27</td><td>KEY_RIGHTBRACE</td><td>RIGHTBRACE</td></tr>
+
+
+            <tr><td>70</td><td>KEY_SCROLLLOCK</td><td>SCROLL_LOCK_KEY</td></tr>
+            <tr><td>119</td><td>KEY_PAUSE</td><td>BREAK_KEY</td></tr>
+        </tbody>
+    </table>
+</div>
+<footer>
+<p>&copy;2026 Miron Cristian. All Rights Reserved. </p>
+</footer>
+
+
+</body>
+</html>
